@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>Add Squirrel</title>
+</head>
+
+<body>
+<h2>Add Squirrel</h2>
+<form action="" method="post">
+{% csrf_token %}
+  <p>Latitude: <input type="text" name="latitude"></p>
+  <p>Longitude: <input type="text" name="longitude"></p>
+  <p>Unique Squirrel ID: <input type="text" name="squirrel_id"></p>
+  <p>Shift:
+    <select name="shift">
+    <option value="AM">AM</option>
+    <option value="PM">PM</option>
+    </select></p>
+  <p>Date: <input type="date" name="date"></p>
+  <p>Age:
+    <select name="age">
+    <option value="Adult">Adult</option>
+    <option value="Juvenile">Juvenile</option>
+  </select></p>
+  <p>Color:
+    <select name="color">
+    <option value="Gray">Gray</option>
+    <option value="Cinnamon">Cinnamon</option>
+    <option value="Black">Black</option>
+  </select></p>
+  <p>Location:
+    <select name="location">
+    <option value="Ground Plane">Ground Plane</option>
+    <option value="Above Ground">Above Ground</option>
+    </select></p>
+  <p>Specific Location: <input type="text" name="specific_location"></p>
+  <p>Running:
+    <select name="running">
+    <option value=True>True</option>
+    <option value=False>False</option>
+    </select>
+  </p>
+  <p>Chasing:
+    <select name="chasing">
+    <option value=True>True</option>
+    <option value=False>False</option>
+  </select></p>
+  <p>Climbing:
+    <select name="climbing">
+    <option value=True>True</option>
+    <option value=False>False</option>
+  </select></p>
+  <p>Eating:
+    <select name="eating">
+    <option value=True>True</option>
+    <option value=False>False</option>
+  </select></p>
+  <p>Foraging:
+    <select name="foraging">
+    <option value=True>True</option>
+    <option value=False>False</option>
+  </select></p>
+  <p>Other Activities: <input type="text" name="other_activities"></p>
+  <p>Kuks:
+    <select name="kuks">
+    <option value=True>True</option>
+    <option value=False>False</option>
+  </select></p>
+  <p>Quaas:
+    <select name="quaas">
+    <option value=True>True</option>
+    <option value=False>False</option>
+  </select></p>
+  <p>Moans:
+    <select name="moans">
+    <option value=True>True</option>
+    <option value=False>False</option>
+  </select></p>
+  <p>Tail flags:
+    <select name="tail_flags">
+    <option value=True>True</option>
+    <option value=False>False</option>
+  </select></p>
+  <p>Tail twitches:
+    <select name="tail_twitches">
+    <option value=True>True</option>
+    <option value=False>False</option>
+  </select></p>
+  <p>Approaches:
+    <select name="approaches">
+    <option value=True>True</option>
+    <option value=False>False</option>
+  </select></p>
+  <p>Indifferent:
+    <select name="indifferent">
+    <option value=True>True</option>
+    <option value=False>False</option>
+  </select></p>
+  <p>Runs from:
+    <select name="runs_from">
+    <option value=True>True</option>
+    <option value=False>False</option>
+  </select></p>
+  <p><input type="submit" value="Submit"></p>
+</form>
+</body>
+</html>
