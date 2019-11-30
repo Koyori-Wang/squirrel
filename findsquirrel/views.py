@@ -25,6 +25,5 @@ def sightings(request):
         i_dict['sid']=i.squirrel_id
         squirrel_id.append(i_dict)
     return render(request, 'findsquirrel/sightings.html', {'squirrel_id':squirrel_id})
-
 # Create your views here.
 

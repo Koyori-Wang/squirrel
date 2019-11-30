@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>squirrel list</title>
+</head>
+
+<body>
+<ul>
+<a href="/findsquirrel/sightings/add/">Add</a><br/>
+<a href="/findsquirrel/sightings/stats/">Stats</a><br/>
+    {% for item in squirrel_id %}
+        <li>
+            <a href="/findsquirrel/sightings/{{ item.sid }}">{{ item.sid }}</a>
+        </li>
+     {% endfor %}
+</ul>
+</body>
+</html>
