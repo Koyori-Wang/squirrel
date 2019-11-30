@@ -18,5 +18,16 @@ def map(request):
         l_dict['longitude']=i.longitude        
         latlong.append(l_dict)
     return render(request, 'findsquirrel/map.html', {'latlong':latlong})
+
+def detail(request, squirrel_id):
+    data = Squirrel.objects.get(squirrel_id=squirrel_id)
+    if request.method == "POST":
+        if 'delete' in request.POST:
+            data.delete()
+        else:
+            data = SquirrelForm(instance=data,data=request.POST)
+            data.save()
+        return redirect('/findsquirrel/sightings/')
+    return render(request, 'findsquirrel/detail.html', {'data':data})
 # Create your views here.
 
