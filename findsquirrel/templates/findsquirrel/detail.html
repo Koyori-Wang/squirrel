@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title>{{ data.squirrel_id }}</title>
+	</head>
+
+	<body>
+		<h2>{{ data.squirrel_id }}</h2>
+		<form action="" method="post">
+			{% csrf_token %}
+			  <p>Latitude: <input type="text" name="latitude" value={{ data.latitude }}></p>  
+			    <p>Longitude: <input type="text" name="longitude" value={{ data.longitude }}></p>
+			      <p>Unique Squirrel ID: <input type="text" name="squirrel_id" value={{ data.squirrel_id }}></p>
+			        <p>Shift:
+				    <select name="shift">
+					        <option value="AM" {% if data.shift == 'AM' %} selected="selected" {% endif %}>AM</option>
+						    <option value="PM" {% if data.shift == 'PM' %} selected="selected" {% endif %}>PM</option>
+						        </select></p>
+							  <p>Date: <input type="date" name="date" value={{ data.date|date:'Y-m-d' }}></p>
+							    <p>Age:
+							        <select name="age">
+									    <option value="Adult" {% if data.age == 'Adult' %} selected="selected" {% endif %}>Adult</option>
+									        <option value="Juvenile" {% if data.age == 'Juvenile' %} selected="selected" {% endif %}>Juvenile</option>
+										  </select></p>  
+										    <p>Color:
+										        <select name="color">
+												    <option value="Gray" {% if data.color == 'Gray' %} selected="selected" {% endif %}>Gray</option>
+												        <option value="Cinnamon" {% if data.color == 'Cinnamon' %} selected="selected" {% endif %}>Cinnamon</option>
+													    <option value="Black" {% if data.color == 'Black' %} selected="selected" {% endif %}>Black</option>
+													      </select></p>
+													        <p>Location:
+														    <select name="location">
+															        <option value="Ground Plane" {% if data.location == 'Ground Plance' %} selected="selected" {% endif %}>Ground Plane</option>
+																    <option value="Above Ground" {% if data.location == 'Above Ground' %} selected="selected" {% endif %}>Above Ground</option>
+																        </select></p>
