@@ -10,14 +10,21 @@ def index(request):
     return render(request, 'findsquirrel/index.html')
 
 def map(request):
-    template = loader.get_template('findsquirrel/map.html')
     latlong = list()
     for i in Squirrel.objects.all():
         l_dict = {}
         l_dict['latitude']=i.latitude
-        l_dict['longitude']=i.longitude        
+        l_dict['longitude']=i.longitude
         latlong.append(l_dict)
     return render(request, 'findsquirrel/map.html', {'latlong':latlong})
+
+def sightings(request):
+    squirrel_id = list()
+    for i in Squirrel.objects.all():
+        i_dict = {}
+        i_dict['sid']=i.squirrel_id
+        squirrel_id.append(i_dict)
+    return render(request, 'findsquirrel/sightings.html', {'squirrel_id':squirrel_id})
 
 def detail(request, squirrel_id):
     data = Squirrel.objects.get(squirrel_id=squirrel_id)
@@ -29,5 +36,6 @@ def detail(request, squirrel_id):
             data.save()
         return redirect('/findsquirrel/sightings/')
     return render(request, 'findsquirrel/detail.html', {'data':data})
+
 # Create your views here.
 
