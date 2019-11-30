@@ -37,5 +37,28 @@ def detail(request, squirrel_id):
         return redirect('/findsquirrel/sightings/')
     return render(request, 'findsquirrel/detail.html', {'data':data})
 
+def add(request):
+    if request.method == "POST":
+        new_squirrel = SquirrelForm(request.POST)
+        new_squirrel.save()
+        return redirect('/findsquirrel/sightings/')
+    return render(request, 'findsquirrel/add.html')
+
+def stats(request):
+    dataset = Squirrel.objects \
+        .values('shift') \
+        .annotate(running_count=Count('shift', filter=Q(running=True)),
+                not_running_count=Count('shift', filter=Q(running=False)),
+                chasing_count=Count('shift', filter=Q(chasing=True)),
+                not_chasing_count=Count('shift', filter=Q(chasing=False)),
+                climbing_count=Count('shift', filter=Q(climbing=True)),
+                not_climbing_count=Count('shift', filter=Q(climbing=False)),
+                eating_count=Count('shift', filter=Q(eating=True)),
+                not_eating_count=Count('shift', filter=Q(eating=False)),
+                foraging_count=Count('shift', filter=Q(foraging=True)),
+                not_foraging_count=Count('shift', filter=Q(foraging=False))) \
+        .order_by('shift')
+    return render(request, 'findsquirrel/stats.html', {'dataset': dataset})
+
 # Create your views here.
 
